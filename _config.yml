@@ -109,29 +109,29 @@ analytics:
 # Site Author
 author:
   name             : "Alex Akins"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  avatar           : "/assets/images/thumbs_logo.png"
+  bio              : "Remote sensing scientist and engineer"
+  location         : "Pasadena, CA"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "alexander.akins@jpl.nasa.gov"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+      url: "https://twitter.com/assuming_alex"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/abakins"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: https://instagram.com/assuming_alex"
 
 # Site Footer
 footer:
@@ -204,8 +204,8 @@ incremental: false
 
 # Markdown Processing
 kramdown:
-  input: GFM
-  hard_wrap: false
+#  input: GFM
+#  hard_wrap: false
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
