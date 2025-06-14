@@ -1,8 +1,6 @@
-import React from 'react';
 
 export default function Revamping() {
   
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center p-6 bg-white">
     <img class="size-72 shrink-0" src="/headshot.jpg" alt="Headshot" />

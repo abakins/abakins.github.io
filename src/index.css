@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -38,18 +39,20 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 12px;
+  border: 1px solid transparent; 
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #130404;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: transform 0.3s
 }
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.05, 1.05);
+  transform-style: preserve-3d;
+
 }
 button:focus,
 button:focus-visible {
@@ -65,10 +68,22 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: black;
+    color: white;
   }
 }
 
+/* Custom CSS */
 download {
   color: #ffffff;
+}
+
+select {
+    border: 1px solid transparent;
+}
+
+select:focus, select:focus-visible {
+  outline: none;
+  border-color: none;
+  box-shadow: none;
 }
