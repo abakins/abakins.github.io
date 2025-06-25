@@ -6,7 +6,7 @@ import TCDAUrl from '../assets/TCDA_blender_render.png'
 export default function RFEng() {
 
     return (
-        <div className="items-start justify-center min-h-screen text-center bg-white">
+        <div className="">
             <div className="bg-white mb-8">
                 <h1 className="text-4xl font-bold italic mb-2"> I am an RF/Microwave Engineer</h1>
                 <p className="text-justify"> 

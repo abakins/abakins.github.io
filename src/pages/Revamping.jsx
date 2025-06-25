@@ -2,10 +2,11 @@
 export default function Revamping() {
   
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center p-6 bg-white">
-    <img class="size-72 shrink-0" src="/headshot.jpg" alt="Headshot" />
-      <h1 className="text-4xl font-bold mb-2">Hi, I'm Alex Akins</h1>
-      <p className="text-lg text-gray-600 max-w-xl">
+    <div className="flex flex-col justify-center items-center max-h-wd p-6 
+                  bg-neutral-100 border-black border-2 rounded-xl shadow-xl">
+    <img class="w-full max-w-md border-2 rounded-md" src="/headshot2.png" alt="Headshot" />
+      <h1 className="text-4xl font-bold mb-2 mt-2 text-black">Hi, I'm Alex Akins</h1>
+      <p className="text-lg text-black max-w-xl">
         I'm a scientist and engineer by training. <br></br>
         I'm currently employed as a researcher at the Jet Propulsion Laboratory in Pasadena, CA, 
         although I'm based in Atlanta, GA.  <br /><br />

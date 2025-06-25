@@ -24,7 +24,7 @@ export default function Home() {
                 setButtonText(bad_button);
                 break
             default:
-                setButtonText(good_button);
+                setButtonText(bad_button);
                 break
             }
         }
@@ -40,7 +40,7 @@ export default function Home() {
         <div className="flex items-center justify-center min-h-screen text-center p-6 bg-white">
             <div class="grid grid-cols-3 items-center gap-10">
                 <div class="col-span-2">
-                    <img class="w-auto shrink-0" src="/headshot.jpg" alt="Headshot"/>
+                    <img class="w-auto shrink-0" src="/headshot2.png" alt="Headshot"/>
                 </div>
                 <div>
                     <h1 className="text-4xl font-bold mb-2">Hi, I'm Alex</h1>
