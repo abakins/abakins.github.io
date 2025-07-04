@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Revamping />} /> 
-        {/* <Route path="/" element={<Home />} />
-        <Route path="/RF_engineer" element={<RFEng />} /> */}
+        <Route path="/dev_home" element={<Home />} />
+        <Route path="/RF_engineer" element={<RFEng />} />  
       </Routes>
     </BrowserRouter>
   );

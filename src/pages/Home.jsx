@@ -39,8 +39,8 @@ export default function Home() {
     
     return (
 
-        <div className="relative h-screen w-screen">
-            <div className="absolute inset-0 z-0">
+        <div className="static">
+            <div className="fixed inset-0 z-0 h-dvh w-dvw">
                 <Silk
                   speed={3}
                   scale={1}
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="relative z-10 flex items-center justify-center h-full w-full">        
                 <div className="flex flex-col md:flex-row max-w-4xl z-10 p-6 gap-4 bg-white border-2 rounded-xl items-center justify-center">
                     <div>   
-                        <img className="w-full max-w-md min-w-4xs border-2 rounded-md border-black" src="/headshot2.png" alt="Headshot"/>
+                        <img className="w-full max-w-md min-w-4xs border-2 rounded-md border-black" src="/headshot2.webp" alt="Headshot"/>
                     </div>
                     <div>
                         <h1 className="text-2xl md:text-4xl font-bold mb-2 text-black">Hi, I'm Alex Akins</h1>
