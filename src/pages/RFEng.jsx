@@ -1,4 +1,6 @@
+import {useNavigate } from 'react-router-dom';
 import Silk from '../blocks/Backgrounds/Silk/Silk'
+import { FaHome } from "react-icons/fa";
 
 import FPRUrl from '../assets/FPR.jpg'
 import VenusUrl from '../assets/venus_from_nasa_pioneer_1_orbiter.jpg'
@@ -7,6 +9,12 @@ import TCDAUrl from '../assets/TCDA_blender_render.webp'
 import VivUrl from '../assets/array_layout.jpg'
 
 export default function RFEng() {
+
+    const navigate=useNavigate() 
+    const handleClick = () => {
+        navigate('/dev_home');
+        }
+    
 
     return (
 
@@ -21,11 +29,16 @@ export default function RFEng() {
                 />
             </div>
 
-            
+            <div className='relative lg:sticky top-2 text-white text-left mt-6 ml-2 z-20'>
+                <button className="rounded-md !bg-[#140078]" onClick={handleClick}>
+                    <FaHome size={25}/>
+                </button>
+            </div>
+
             <div className="relative z-10 items-start justify-center h-full w-full">
-                <div className="flex flex-col p-4 sm:p-10 lg:p-20 gap-8">
+                <div className="flex flex-col p-4 sm:p-6 lg:p-20 gap-8">
                     <div >
-                        <h1 className="text-4xl mb-2 text-white text-left underline"> I am a Microwave Engineer</h1>
+                        <h1 className="text-6xl mb-2 text-white text-left font-serif"> I am a Microwave Engineer</h1>
                         <div className="flex bg-none rounded-xl items-center justify-left">
                             <p className="text-lg text-white text-left sm:text-justify italic">  
                             My interest in microwave engineering started during my coursework and Ph.D. thesis research at Georgia Tech in the Electrical and Computer Engineering 
@@ -43,9 +56,14 @@ export default function RFEng() {
                         <h1 className="text-4xl mb-2 text-white text-left font-bold"> Past projects include... </h1>
                         <div className='flex flex-col lg:flex-row bg-white rounded-xl max-w-7xl items-left lg:items-center'>
                             <div>
-                                <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline mx-6 my-2 text-left">Microwave Spectroscopy</h2>
-                                <h2 className="text-lg lg:text-2xl font-bold mb-2 text-black text-left italic mx-6 my-2">The Venusian Atmosphere</h2>
-                                <p className='text-lg text-left sm:text-justify mx-6 my-2'> A large part of my doctoral thesis focused on measuring of the microwave and millimeter-wavelength absorption spectra of sulfuric acid vapor under 
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 underline decoration-1 mx-6 my-2 text-left text-black">
+                                    Microwave Spectroscopy
+                                </h1>
+                                <h1 className="text-lg lg:text-2xl font-bold mb-2 text-left mx-6 my-2 text-black">
+                                    The Venusian Atmosphere
+                                </h1>
+                                <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> 
+                                A large part of my doctoral thesis focused on measuring of the microwave and millimeter-wavelength absorption spectra of sulfuric acid vapor under 
                                 conditions that would be found in the cloud level-atmosphere of Venus.
                                 <br></br>
                                 <br></br>
@@ -70,8 +88,8 @@ export default function RFEng() {
 
                         <div className='flex flex-col lg:flex-row bg-white rounded-xl max-w-7xl items-center my-8'>
                             <div>
-                                <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline mx-6 my-2 text-left">Non-Destructive Reflector Characterization</h2>
-                                <p className='text-lg text-left sm:text-justify mx-6 my-2'> When designing reflector-fed microwave instruments for space, it is necessary to 
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Non-Destructive Reflector Characterization</h1>
+                                <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> When designing reflector-fed microwave instruments for space, it is necessary to 
                                     satisfy mass and thermal requirements on external structures without severely impacting instrument electromagnetic performance. 
                                     For the instrument in question, the reflector material was a lightweight composite material which was treated using a vapor-deposited aluminum 
                                     process and painted white to minimize solar heating. My job was to determine that the reflector conductivity after this process was high enough to meet the project 
@@ -92,8 +110,8 @@ export default function RFEng() {
                         </div>
                         <div className='flex flex-col lg:flex-row bg-white rounded-xl max-w-7xl items-left lg:items-center'>
                             <div>
-                                <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline mx-6 my-2 text-left">Wideband Antenna Design</h2>
-                                <p className='text-lg text-left sm:text-justify mx-6 my-2'> My group at JPL is interested in designing 
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Wideband Antenna Design</h1>
+                                <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> My group at JPL is interested in designing 
                                     next-generation spacecraft microwave radiometer systems which reduce their size, weight, and power, thereby 
                                     enabling greater flexibility in mission formulation. One focus in this effort has been the design of 
                                     array antenna systems operating over 3-4:1 bandwidths for future missions to the outer solar system

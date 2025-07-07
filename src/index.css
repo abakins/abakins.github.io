@@ -35,15 +35,14 @@ body {
 
 h1 {
   line-height: 1.1;
+  font-family: "Noto Serif Variable", serif;
 }
 
 button {
   border-radius: 12px;
   border: 1px solid transparent; 
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  font-size: medium;
   background-color: #130404;
   cursor: pointer;
   transition: transform 0.3s
@@ -60,7 +59,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: black;
     background-color: #ffffff;
   }
   a:hover {
@@ -79,10 +78,19 @@ download {
 
 select {
     border: 1px solid transparent;
+    
 }
 
 select:focus, select:focus-visible {
   outline: none;
   border-color: none;
   box-shadow: none;
+}
+
+p {
+  font-family: "Noto Sans Variable", sans-serif;
+}
+
+.card_text{
+  color:black; 
 }

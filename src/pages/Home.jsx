@@ -1,6 +1,7 @@
 import {useState} from 'react'; 
 import {useNavigate } from 'react-router-dom';
 import Silk from '../blocks/Backgrounds/Silk/Silk'
+import ParUrl from '../assets/conga_parrot.gif'
 
 export default function Home() {
     const good_button = "Find out more";
@@ -19,7 +20,7 @@ export default function Home() {
                 setButtonText(good_button);
                 break
             case "astro": 
-                setButtonText(bad_button);
+                setButtonText(good_button);
                 break
             case "hobby": 
                 setButtonText(bad_button);
@@ -34,6 +35,10 @@ export default function Home() {
         switch (dropVal) { 
             case 'microwave_eng': 
                 navigate('/RF_engineer');
+                break
+            case 'astro': 
+                navigate('/astronomy');
+                break
             }
         }
     
@@ -55,21 +60,33 @@ export default function Home() {
                     <div>   
                         <img className="w-full max-w-md min-w-4xs border-2 rounded-md border-black" src="/headshot2.webp" alt="Headshot"/>
                     </div>
-                    <div>
+                    <div className='flex flex-col items-center gap-2'>
                         <h1 className="text-2xl md:text-4xl font-bold mb-2 text-black">Hi, I'm Alex Akins</h1>
                         <h2 className="text-lg md:text-2xl font-serif italic mb-2 text-black">I am 
                             <select 
                                 value={dropVal}
                                 onChange={handleChange}>
                             <option value="microwave_eng">a Microwave Engineer</option>
-                            <option value="space_ins">a Spacecraft Instrument Scientist</option>
                             <option value="astro">an Astronomer</option>
+                            <option value="space_ins">a Spacecraft Instrument Scientist</option>
                             </select>
                         </h2>
-                        <button className="rounded-md" onClick={handleClick}>
-                            {buttonText}
-                        </button>
+                        <button className="w-auto max-w-40 " onClick={handleClick}>
+                            <p>{buttonText}</p>
+                        </button>   
+
+                        <a href="/CV.pdf" download className=" mt-10 px-6 py-2 rounded-[12px] 
+                                                              bg-linear-to-r/decreasing from-violet-800 via-lime-300 to-violet-800 
+                                                              flex items-center"
+                                                    style={{ color: 'white' }}>
+                            <p>Or just download my CV 
+                            </p>
+                            <span>
+                                <img src={ParUrl} className="w-10 ml-4 rounded-full border-black border-1 self-center" />
+                            </span>    
+                        </a>
                     </div>
+                    
                 </div>
             </div> 
         </div> 
