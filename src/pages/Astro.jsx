@@ -91,7 +91,7 @@ export default function Astro() {
                         </div>
 
                         <div className="flex flex-col my-2 mx-2 gap-4 items-center">
-                            <video className='w-auto max-w-sm min-w-2xs rounded-2xl' autoPlay muted loop>
+                            <video className='w-auto max-w-sm min-w-2xs rounded-2xl' autoPlay muted loop webkit-playsinline playsinline>
                                 <source src={UraVidUrl} type="video/mp4" alt='Uranus observations'></source>
                             </video>
                             <p className='text-black'> Uranus, Very Large Array, 1981-2021 </p>
