@@ -1,7 +1,7 @@
 import {useNavigate} from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
 import gsap from 'gsap'; 
-import { SplitText } from 'gsap/all'; 
+import { SplitText, ScrollTrigger} from 'gsap/all'; 
 import {useGSAP} from '@gsap/react'; 
 
 import Silk from '../blocks/Backgrounds/Silk/Silk'
@@ -10,19 +10,29 @@ import UraVidUrl from '../assets/uravid.mp4'
 import VenusUrl from '../assets/venus_ims.webp'
 import MoonsUrl from '../assets/moons.webp'
 
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger); 
 
 export default function Astro() {
     useGSAP(() => {
-        gsap.registerPlugin(useGSAP, SplitText); 
-        let split = SplitText.create(".text", {
-            type: "words"
-        }); 
+        
+        const elements = document.querySelectorAll(".rolltext");
+
+        elements.forEach((el) => {
+        const split = new SplitText(el, { type: "words" });
+
         gsap.from(split.words, {
-            y: 100, 
+            scrollTrigger: {
+                trigger: el,
+                start: "top 95%",
+                toggleActions: "play none none none",
+                },
+            y: 10, 
             autoAlpha:0,
-            stagger: 0.01
-        })
-    }); 
+            stagger: {amount: 1.0},
+            ease: 'expo'
+        });       
+    });    
+});  
     const navigate=useNavigate() 
     const handleClick = () => {
         navigate('/dev_home');
@@ -39,19 +49,19 @@ export default function Astro() {
                 />
             </div>
 
-            <div className='relative lg:sticky top-0 text-white text-left mt-6 ml-2 z-20'>
-                <button className="rounded-md !bg-[#780014]" onClick={handleClick}>
+            <div className='relative lg:sticky top-0 text-white text-left mt-6 ml-1 z-20'>
+                <button className="rounded-md !border-3 !border-white" onClick={handleClick}>
                     <FaHome size={25}/>
                 </button>
             </div>
 
             <div className="relative z-10 items-start justify-center h-full w-full">
                 <div className="flex flex-col p-4 sm:p-10 lg:p-20 gap-8">
-                    <div className='text'>
+                    <div className='max-w-7xl'>
                         <h1 className="text-6xl mb-2 text-white text-center"> I am an Astronomer</h1>
                         <div className="flex bg-none rounded-xl items-center justify-left">
-                            <p className="text-lg text-white text-left sm:text-justify italic">  
-                            In my research, I use radio telescope arrays located around the world to observe emission from 
+                            <p className="rolltext text-xl lg:text-2xl text-white text-left sm:text-justify">  
+                            In my research, I use radio telescope arrays located around the world to observe the
                             planets and their moons. 
                             <br></br>
                             These observations reveal the hidden properties of these bodies at depths below
@@ -61,21 +71,22 @@ export default function Astro() {
                     </div>
 
                     <div className='max-w-7xl'>
-                        <img className="object-scale-down rounded-2xl border-2 border-white" src={ObsUrl} alt="Global radio observatories"/>
+                        <img className="object-scale-down rounded-2xl border-4 border-white" src={ObsUrl} alt="Global radio observatories"/>
 
                     </div>
-                    <div className='flex flex-col lg:flex-row bg-white rounded-xl max-w-7xl items-left lg:items-center'>
+                    <div className='flex flex-col lg:flex-row bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
                         <div>
                             <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left text-black">Uranus</h1>
-                            <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> 
-                                An ongoing project of mine, in collaboration with Mark Hofstadter at JPL, is the analysis of 40 years worth of 
+                            <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                                I'm currently working on analyzing of 40 years worth of 
                                 Very Large Array observations of Uranus, our nearest ice giant planet. This is around half of of the time it takes 
-                                for the planet to orbit the Sun. Uranus has high axial tilt, and as a result, only one of the poles of its spin 
-                                axis can be observed as once. Uranus is now approaching polar solstice, where the planet's north pole will be pointed towards Earth.
+                                for the planet to orbit the Sun. Uranus has high axial tilt, and as a result, its poles can be hidden from view for many years. 
+                                Uranus is now approaching polar solstice, where the planet's north pole will be pointed towards Earth.
                                 <br></br>
                                 <br></br>
                                 The goal of such a long-baseline observing campaign is to study seasonality in the planet's atmosphere. As time goes on, 
-                                the VLA images have gotten better and better, and in the past few years, we have been able to study the north polar cyclone. 
+                                the VLA images have gotten better and better, and in the past few years, our team has even been able to resolve and study the 
+                                <a href="https://www.jpl.nasa.gov/news/nasa-scientists-make-first-observation-of-a-polar-cyclone-on-uranus/"> north polar cyclone. </a> 
                             </p>        
                         </div>
 
@@ -87,34 +98,34 @@ export default function Astro() {
                         </div>
                     </div> 
 
-                    <div className='flex flex-col bg-white rounded-xl max-w-7xl items-left lg:items-center'>
-                        <h1 className="text-2xl lg:text-4xl font-bold mb-2  mx-6 my-2 text-left text-black">The Surface of Venus</h1>
+                    <div className='flex flex-col bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                        <h1 className="text-2xl lg:text-4xl font-bold mb-2  mx-6 my-6 text-left text-black">The Surface of Venus</h1>
                         <div className='w-auto max-w-5xl min-w-2xs mx-6'> 
                             <img className= "object-scale-down rounded-2xl" src={VenusUrl} alt="Venus observations"/>
                         </div>
-                        <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> Another ongoing project, in collaboration with Bryan Butler at the NRAO, 
-                            has been the analysis of long-wavelength Very Large Array and Giant Meter Wavelength Telescope observations which can see through 
+                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                            Another ongoing project is the analysis of long-wavelength Very Large Array and Giant Meter Wavelength Telescope observations which can see through 
                             Venus' dense atmosphere. 
                             <br></br>
                             <br></br>
                             10-20 cm observations can achieve quite high resolution, almost as good as the data recorded by 
-                            the Magellan spacecraft! While Magellan studied surface thermal emission, it did not study surface polarization. 
+                            the Magellan spacecraft! While Magellan observed Venus' surface emission intensity, it did not measure its polarization. 
                             This is where the VLA data are quite helpful.  
                             <br></br>
                             <br></br>
-                            Moving to meter-wavelengths, Venus gets much harder to observe, but the VLA and GMRT can still measure total brightness
-                            amidst a background of strong galactic sources. These observations have found that Venus' sub-surface emission strength 
-                            decreases much more than we would expect. 
+                            Moving to meter-wavelengths, Venus gets much harder to observe due to confusion from strong background radio sources, but the VLA and GMRT can still measure the disk-integrated brightness quite well.
+                            These observations have found that Venus' sub-surface emission intensity 
+                            is much weaker than we would expect, suggesting some exotic sub-surface structure. 
                         </p>        
                     </div> 
 
-                    <div className='flex flex-col bg-white rounded-xl max-w-7xl items-left lg:items-center'>
-                        <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left text-black">Moons of Earth and Jupiter</h1>
+                    <div className='flex flex-col bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                        <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-6 text-left text-black">Moons of Earth and Jupiter</h1>
                         <div className='w-auto max-w-5xl min-w-2xs mx-6'> 
                             <img className= "object-scale-down rounded-2xl" src={MoonsUrl} alt="Moon observations"/>
                         </div>
 
-                        <p className='text-lg text-left sm:text-justify mx-6 my-2 text-black'> 
+                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
                             In addition to observing planets, I am also interested in observations of airless bodies like the Moon. 
                             The observations above were obtained by the MeerKAT array as part of an engineering project to determine the 
                             polarization rotation angles of calibrator quasars. They are perhaps the most sensitive radio images of the Moon 

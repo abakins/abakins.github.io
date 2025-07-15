@@ -19,7 +19,7 @@ export default function Revamping() {
             <div className="relative z-10 flex items-center justify-center h-full w-full">
                 <div className="flex flex-col justify-center items-center p-6 
                   bg-neutral-100 border-black border-2 rounded-xl shadow-xl">
-                    <img class="w-full max-w-md border-2 rounded-md" src="/headshot2.webp" alt="Headshot" />
+                    <img className="w-full max-w-md border-2 rounded-md" src="/headshot2.webp" alt="Headshot" />
                     <h1 className="text-4xl font-bold mb-2 mt-2 text-black">Hi, I'm Alex Akins</h1>
                     <p className="text-lg text-black max-w-xl">
                         I'm a planetary scientist and engineer working as a researcher at the Jet Propulsion Laboratory (NASA/Caltech) in Pasadena, CA,

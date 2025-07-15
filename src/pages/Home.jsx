@@ -6,7 +6,7 @@ import ParUrl from '../assets/conga_parrot.gif'
 export default function Home() {
     const good_button = "Find out more";
     const bad_button = "Still in development...";
-    const [dropVal, setDropVal] = useState("microwave_eng");
+    const [dropVal, setDropVal] = useState("astro");
     const [buttonText, setButtonText] = useState(good_button);
     
     const navigate=useNavigate() 
@@ -22,7 +22,7 @@ export default function Home() {
             case "astro": 
                 setButtonText(good_button);
                 break
-            case "hobby": 
+            case "space_ins": 
                 setButtonText(bad_button);
                 break
             default:
@@ -62,21 +62,21 @@ export default function Home() {
                     </div>
                     <div className='flex flex-col items-center gap-2'>
                         <h1 className="text-2xl md:text-4xl font-bold mb-2 text-black">Hi, I'm Alex Akins</h1>
-                        <h2 className="text-lg md:text-2xl font-serif italic mb-2 text-black">I am 
-                            <select 
+                        <h2 className="text-xl md:text-2xl font-serif italic mb-2 text-black">I am 
+                            <select
                                 value={dropVal}
                                 onChange={handleChange}>
-                            <option value="microwave_eng">a Microwave Engineer</option>
                             <option value="astro">an Astronomer</option>
-                            <option value="space_ins">a Spacecraft Instrument Scientist</option>
+                            <option value="microwave_eng">a Microwave Engineer</option>
+                            <option value="space_ins">an Instrument Scientist</option>
                             </select>
                         </h2>
-                        <button className="w-auto max-w-40 " onClick={handleClick}>
+                        <button className="w-auto max-w-lg " onClick={handleClick}>
                             <p>{buttonText}</p>
                         </button>   
 
                         <a href="/CV.pdf" download className=" mt-10 px-6 py-2 rounded-[12px] 
-                                                              bg-linear-to-r/decreasing from-violet-800 via-lime-300 to-violet-800 
+                                                              bg-linear-to-r/decreasing from-violet-800 via-lime-500 to-violet-800 
                                                               flex items-center"
                                                     style={{ color: 'white' }}>
                             <p>Or just download my CV 
