@@ -10,7 +10,9 @@ import VenusUrl from '../assets/venus_ims.webp'
 import MoonsUrl from '../assets/moons.webp'
 
 export default function Astro() {
-    RollText()
+    
+    RollText();
+
     const navigate=useNavigate() 
     const handleClick = () => {
         navigate('/');
