@@ -1,5 +1,20 @@
 @import 'tailwindcss';
 
+/* Split Complementary Color Palette 
+#EB9E00 - Orange
+#EB5500 - Red
+#01A3EB - Blue
+#2F5D70 - Dark blue
+#6B5A36 - Dark beige
+#6B4732 - Dark brown
+ */
+
+ @theme {
+  --color-theme_orange: #EB9E00;
+  --color-theme_red: #EB5500;
+  --color-theme_blue: #01A3EB;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -17,12 +32,19 @@
 
 a {
   font-weight: 500;
-  color: blue;
-  text-decoration: inherit;
+  color: #01A3EB;
 }
 
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
+}
+
+.link_button {
+  transition-duration: 300ms;
+}
+.link_button:hover {
+  text-decoration: none;
+  background-color: #EB9E00;
 }
 
 body {
@@ -36,6 +58,7 @@ body {
 h1 {
   line-height: 1.1;
   font-family: "Noto Serif Variable", serif;
+  color: white; 
 }
 
 button {
@@ -43,7 +66,7 @@ button {
   border: 1px solid transparent; 
   padding: 0.6em 1.2em;
   font-size: medium;
-  background-color: #130404;
+  background-color: #EB9E00;
   cursor: pointer;
   transition: transform 0.3s
 }
@@ -58,17 +81,7 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: black;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: black;
-    color: white;
-  }
+
 }
 
 /* Custom CSS */
