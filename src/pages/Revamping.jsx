@@ -33,10 +33,9 @@ export default function Revamping() {
                         In the meantime, you can find my CV below. 
                         <br /><br />
                     </p>
-                    <p className="text-xl text-white text-justify max-w-xl">
+                    <p className="text-xl text-justify max-w-xl">
 
-                        <a href="/CV.pdf" download className="link_button px-6 py-2 rounded-lg bg-[#8c8c8c]"
-                            style={{ color: 'white' }}>
+                        <a href="/CV.pdf" download className="!text-white link_button px-6 py-2 rounded-lg bg-[#8c8c8c]">
                             Download CV
                         </a>
                     </p>

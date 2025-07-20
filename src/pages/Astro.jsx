@@ -1,8 +1,7 @@
 import {useNavigate} from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
-import gsap from 'gsap'; 
-import { SplitText, ScrollTrigger} from 'gsap/all'; 
-import {useGSAP} from '@gsap/react'; 
+import RollText from '../custom_blocks/SplitText/RollText';
+import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
 
 import Silk from '../blocks/Backgrounds/Silk/Silk'
 import ObsUrl from '../assets/obs_ims.webp'
@@ -10,32 +9,11 @@ import UraVidUrl from '../assets/uravid.mp4'
 import VenusUrl from '../assets/venus_ims.webp'
 import MoonsUrl from '../assets/moons.webp'
 
-gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger); 
-
 export default function Astro() {
-    useGSAP(() => {
-        
-        const elements = document.querySelectorAll(".rolltext");
-
-        elements.forEach((el) => {
-        const split = new SplitText(el, { type: "words" });
-
-        gsap.from(split.words, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 95%",
-                toggleActions: "play none none none",
-                },
-            y: 10, 
-            autoAlpha:0,
-            stagger: {amount: 1.0},
-            ease: 'expo'
-        });       
-    });    
-});  
+    RollText()
     const navigate=useNavigate() 
     const handleClick = () => {
-        navigate('/dev_home');
+        navigate('/');
         }
     return (
         <div className="static">
@@ -43,25 +21,31 @@ export default function Astro() {
                 <Silk
                   speed={3}
                   scale={1}
-                  color= "#140078" // "#7B7481"
+                  color= "#2F5D70" // "#7B7481"
                   noiseIntensity={1.5}
                   rotation={135}
                 />
             </div>
 
-            <div className='relative lg:sticky top-0 text-white text-left mt-6 ml-1 z-20'>
-                <button className="rounded-md !border-3 !border-white" onClick={handleClick}>
-                    <FaHome size={25}/>
-                </button>
-            </div>
+            <div className='relative lg:sticky top-2 text-white text-left mt-6 ml-1 z-20'> 
+                 <button className="rounded-md !bg-transparent border-1" onClick={handleClick}> 
+                     <FaHome size={25}/> 
+                 </button> 
+             </div>
 
             <div className="relative z-10 items-start justify-center h-full w-full">
+                <ClickSpark
+                sparkColor='#fff'
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}> {  
                 <div className="flex flex-col p-4 sm:p-10 lg:p-20 gap-8">
                     <div className='max-w-7xl'>
-                        <h1 className="text-6xl mb-2 text-white text-center"> I am an Astronomer</h1>
+                        <h1 className="text-6xl mb-2 text-white text-center"> Astronomy </h1>
                         <div className="flex bg-none rounded-xl items-center justify-left">
                             <p className="rolltext text-xl lg:text-2xl text-white text-left sm:text-justify">  
-                            In my research, I use radio telescope arrays located around the world to observe the
+                            I use radio telescope arrays located around the world to observe the
                             planets and their moons. 
                             <br></br>
                             These observations reveal the hidden properties of these bodies at depths below
@@ -71,13 +55,15 @@ export default function Astro() {
                     </div>
 
                     <div className='max-w-7xl'>
-                        <img className="object-scale-down rounded-2xl border-4 border-white" src={ObsUrl} alt="Global radio observatories"/>
+                        <img className="object-scale-down rounded-2xl border-1 border-white" src={ObsUrl} alt="Global radio observatories"/>
 
                     </div>
-                    <div className='flex flex-col lg:flex-row bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                    <div className='flex flex-col lg:flex-row border-1 bg-black
+                                    rounded-xl max-w-7xl items-left lg:items-center
+                                    '>
                         <div>
-                            <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left text-black">Uranus</h1>
-                            <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                            <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left">Uranus</h1>
+                            <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> 
                                 I'm currently working on analyzing of 40 years worth of 
                                 Very Large Array observations of Uranus, our nearest ice giant planet. This is around half of of the time it takes 
                                 for the planet to orbit the Sun. Uranus has high axial tilt, and as a result, its poles can be hidden from view for many years. 
@@ -94,16 +80,16 @@ export default function Astro() {
                             <video className='w-auto max-w-sm min-w-2xs rounded-2xl' autoPlay muted playsInline loop >
                                 <source src={UraVidUrl} type="video/mp4" alt='Uranus observations'></source>
                             </video>
-                            <p className='text-black'> Uranus, Very Large Array, 1981-2021 </p>
+                            <p> Uranus, Very Large Array, 1981-2021 </p>
                         </div>
                     </div> 
 
-                    <div className='flex flex-col bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                    <div className='flex flex-col bg-black border-1 rounded-xl max-w-7xl items-left lg:items-center'>
                         <h1 className="text-2xl lg:text-4xl font-bold mb-2  mx-6 my-6 text-left text-black">The Surface of Venus</h1>
                         <div className='w-auto max-w-5xl min-w-2xs mx-6'> 
                             <img className= "object-scale-down rounded-2xl" src={VenusUrl} alt="Venus observations"/>
                         </div>
-                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> 
                             Another ongoing project is the analysis of long-wavelength Very Large Array and Giant Meter Wavelength Telescope observations which can see through 
                             Venus' dense atmosphere. 
                             <br></br>
@@ -119,13 +105,13 @@ export default function Astro() {
                         </p>        
                     </div> 
 
-                    <div className='flex flex-col bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                    <div className='flex flex-col rounded-xl max-w-7xl items-left lg:items-center bg-black border-1'>
                         <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-6 text-left text-black">Moons of Earth and Jupiter</h1>
                         <div className='w-auto max-w-5xl min-w-2xs mx-6'> 
                             <img className= "object-scale-down rounded-2xl" src={MoonsUrl} alt="Moon observations"/>
                         </div>
 
-                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                        <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> 
                             In addition to observing planets, I am also interested in observations of airless bodies like the Moon. 
                             The observations above were obtained by the MeerKAT array as part of an engineering project to determine the 
                             polarization rotation angles of calibrator quasars. They are perhaps the most sensitive radio images of the Moon 
@@ -141,6 +127,7 @@ export default function Astro() {
                         </p>        
                     </div> 
                 </div>
+            } </ClickSpark>
             </div>
 
         </div>

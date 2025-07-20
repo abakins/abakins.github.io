@@ -10,9 +10,8 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Revamping />} /> 
-          <Route path="dev_home" element={<Home />} />
-          <Route path="RF_engineer" element={<RFEng />} />  
+        <Route path="/" element={<Home />} /> 
+          <Route path="microwave_engineering" element={<RFEng />} />  
           <Route path="astronomy" element={<Astro />} />  
       </Routes>
     </HashRouter>

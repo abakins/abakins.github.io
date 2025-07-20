@@ -1,10 +1,11 @@
 import {useState} from 'react'; 
 import {useNavigate } from 'react-router-dom';
 import Silk from '../blocks/Backgrounds/Silk/Silk'
-import ParUrl from '../assets/conga_parrot.gif'
+import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
+import TextType from '../blocks/TextAnimations/TextType/TextType'
 
 export default function Home() {
-    const good_button = "Find out more";
+    const good_button = "Go 🚀";
     const bad_button = "Still in development...";
     const [dropVal, setDropVal] = useState("astro");
     const [buttonText, setButtonText] = useState(good_button);
@@ -34,7 +35,7 @@ export default function Home() {
     const handleClick = () => {
         switch (dropVal) { 
             case 'microwave_eng': 
-                navigate('/RF_engineer');
+                navigate('/microwave_engineering');
                 break
             case 'astro': 
                 navigate('/astronomy');
@@ -49,47 +50,68 @@ export default function Home() {
                 <Silk
                   speed={3}
                   scale={1}
-                  color= "33474f" // "#7B7481"
+                  color= "#8c8c8c" 
                   noiseIntensity={1.5}
                   rotation={0}
                 />
             </div>
 
-            <div className="relative z-10 flex items-center justify-center h-full w-full">        
-                <div className="flex flex-col md:flex-row max-w-4xl z-10 p-6 gap-4 bg-white border-2 rounded-xl items-center justify-center">
+            <div className="relative z-10 flex items-center justify-center h-full w-full">  
+                <ClickSpark
+                sparkColor='#fff'
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}> {      
+                <div className="flex flex-col md:flex-row max-w-4xl z-10 p-6 gap-4 border-2 
+                                rounded-xl items-center justify-center bg-black">
                     <div>   
-                        <img className="w-full max-w-md min-w-4xs border-2 rounded-md border-black" src="/headshot2.webp" alt="Headshot"/>
+                        <img className="w-full max-w-md min-w-xs border-1 bg-white rounded-md" src="/headshot2.webp" alt="Headshot"/>
                     </div>
-                    <div className='flex flex-col items-center gap-2'>
-                        <h1 className="text-2xl md:text-4xl font-bold mb-2 text-black">Hi, I'm Alex Akins</h1>
-                        <h2 className="text-xl md:text-2xl font-serif italic mb-2 text-black">I am 
+                    <div className='flex flex-col items-center gap-2 max-w-md'>
+                        <h1 className="text-2xl md:text-4xl font-bold mb-2 text-black">
+                            <TextType 
+                              text={["Hi, I'm Alex Akins"]}
+                              typingSpeed={75}
+                              pauseDuration={1500}
+                              showCursor={true}
+                              cursorCharacter="|"
+                              cursorBlinkDuration={0.5}
+                              onSentenceComplete
+                            />
+                            {/* Hi, I'm Alex Akins</h1> */}
+                            </h1>
+                        <p className="text-justify text-lg md:text-xl"> I'm a planetary scientist and engineer based in Atlanta, GA. 
+                            I work as a researcher at the 
+                            <a href="https://www.jpl.nasa.gov/" className='!text-theme_red'> Jet Propulsion Laboratory </a> (NASA/Caltech)
+                            <br></br>
+                            <br></br>
+                            You can click through the menu below to find out more about my work. 
+                        </p>
+                        <h2 className="text-xl md:text-2xl border-b-1">
                             <select
                                 value={dropVal}
                                 onChange={handleChange}>
-                            <option value="astro">an Astronomer</option>
-                            <option value="microwave_eng">a Microwave Engineer</option>
-                            <option value="space_ins">an Instrument Scientist</option>
+                            <option value="astro">Astronomy</option>
+                            <option value="microwave_eng">Microwave Engineering</option>
+                            <option value="space_ins">Spacecraft Instrument Science</option>
                             </select>
                         </h2>
-                        <button className="w-auto max-w-lg " onClick={handleClick}>
+                        <button className="!bg-theme_blue w-auto max-w-lg mt-2" onClick={handleClick}>
                             <p>{buttonText}</p>
                         </button>   
 
-                        <a href="/CV.pdf" download className=" mt-10 px-6 py-2 rounded-[12px] 
-                                                              bg-linear-to-r/decreasing from-violet-800 via-lime-500 to-violet-800 
-                                                              flex items-center"
-                                                    style={{ color: 'white' }}>
-                            <p>Or just download my CV 
+                        <a href="/CV.pdf" download className="link_button mt-10 px-6 py-2 rounded-lg bg-[#8c8c8c]
+                                                              flex items-center !text-white">
+                            <p className='text-lg md:text-xl'>Download my CV 
                             </p>
-                            <span>
-                                <img src={ParUrl} className="w-10 ml-4 rounded-full border-black border-1 self-center" />
-                            </span>    
                         </a>
                     </div>
                     
                 </div>
+                } </ClickSpark>
             </div> 
         </div> 
-
+        
     ); 
 } 

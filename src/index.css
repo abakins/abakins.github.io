@@ -21,7 +21,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: white;
   background-color: #242424;
 
   font-synthesis: none;
@@ -32,7 +32,7 @@
 
 a {
   font-weight: 500;
-  color: #01A3EB;
+  color: #EB5500;
 }
 
 a:hover {
@@ -61,9 +61,15 @@ h1 {
   color: white; 
 }
 
+h2 {
+  line-height: 1.1;
+  font-family: "Noto Sans Variable", serif;
+  color: white; 
+}
+
 button {
   border-radius: 12px;
-  border: 1px solid transparent; 
+  border: 1px solid; 
   padding: 0.6em 1.2em;
   font-size: medium;
   background-color: #EB9E00;
@@ -91,6 +97,7 @@ download {
 
 select {
     border: 1px solid transparent;
+    text-align-last:center;
     
 }
 
@@ -104,6 +111,3 @@ p {
   font-family: "Noto Sans Variable", sans-serif;
 }
 
-.card_text{
-  color:black; 
-}

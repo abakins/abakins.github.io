@@ -1,9 +1,8 @@
 import {useNavigate } from 'react-router-dom';
 import Silk from '../blocks/Backgrounds/Silk/Silk'
 import { FaHome } from "react-icons/fa";
-import gsap from 'gsap'; 
-import { SplitText, ScrollTrigger } from 'gsap/all'; 
-import {useGSAP} from '@gsap/react'; 
+import RollText from '../custom_blocks/SplitText/RollText';
+import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
 
 import FPRUrl from '../assets/FPR.jpg'
 import VenusUrl from '../assets/venus_from_nasa_pioneer_1_orbiter.jpg'
@@ -11,34 +10,12 @@ import ReflUrl from '../assets/reflection_measurement.jpg'
 import TCDAUrl from '../assets/TCDA_blender_render.webp'
 import VivUrl from '../assets/array_layout.jpg'
 
-gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger); 
-
 export default function RFEng() {
-    useGSAP(() => {
-        
-        const elements = document.querySelectorAll(".rolltext");
-
-        elements.forEach((el) => {
-        const split = new SplitText(el, { type: "words" });
-
-        gsap.from(split.words, {
-            scrollTrigger: {
-                trigger: el,
-                start: "top 95%",
-                toggleActions: "play none none none",
-                },
-            y: 10, 
-            autoAlpha:0,
-            stagger: {amount: 1.0},
-            ease: 'expo'
-        });       
-    });    
-});  
+    RollText(); 
     const navigate=useNavigate() 
     const handleClick = () => {
-        navigate('/dev_home');
+        navigate('/');
         }
-    
 
     return (
 
@@ -47,22 +24,22 @@ export default function RFEng() {
                 <Silk
                   speed={3}
                   scale={1}
-                  color= "#780014" // "#7B7481"
+                  color= "#6B5A36" // "#7B7481"
                   noiseIntensity={1.5}
                   rotation={45}
                 />
             </div>
 
-            <div className='relative lg:sticky top-2 text-white text-left mt-6 ml-1 z-20'>
-                <button className="rounded-md !border-3 !border-white" onClick={handleClick}>
-                    <FaHome size={25}/>
-                </button>
-            </div>
+            <div className='relative lg:sticky top-2 text-white text-left mt-6 ml-1 z-20'> 
+                 <button className="rounded-md !bg-transparent border-1" onClick={handleClick}> 
+                     <FaHome size={25}/> 
+                 </button> 
+             </div>
 
             <div className="relative z-10 items-start justify-center h-full w-full">
                 <div className="flex flex-col p-4 sm:p-6 lg:p-20 gap-8">
                     <div>
-                        <h1 className="text-6xl mb-2 text-white text-left font-serif"> I am a Microwave Engineer</h1>
+                        <h1 className="text-6xl mb-2 text-white text-center font-serif"> Microwave Engineering </h1>
                         <div className="flex bg-none rounded-xl items-center justify-left max-w-7xl">
                             <p className="rolltext text-xl lg:text-2xl text-white text-left sm:text-justify italic">  
                             My interest in microwave engineering started during my coursework and Ph.D. thesis research at Georgia Tech in the Electrical and Computer Engineering 
@@ -77,15 +54,16 @@ export default function RFEng() {
 
                     <div>
                         <h1 className="text-4xl mb-2 text-white text-left font-bold"> Past projects include... </h1>
-                        <div className='flex flex-col lg:flex-row bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center'>
+                        <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl 
+                                        items-left lg:items-center border-1'>
                             <div className='my-6'>
-                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 underline decoration-1 mx-6 my-2 text-left text-black">
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 underline decoration-1 mx-6 my-2 text-left">
                                     Microwave Spectroscopy
                                 </h1>
-                                <h1 className="text-xl lg:text-2xl font-bold mb-2 text-left mx-6 my-2 text-black">
+                                <h1 className="text-xl lg:text-2xl font-bold mb-2 text-left mx-6 my-2">
                                     The Venusian Atmosphere
                                 </h1>
-                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> 
+                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> 
                                 My doctoral thesis focused on measuring of the microwave and millimeter-wavelength absorption spectra of sulfuric acid vapor under 
                                 conditions that would be found in the cloud level-atmosphere of Venus.
                                 <br></br>
@@ -94,8 +72,9 @@ export default function RFEng() {
                                 at wavelengths between 1 cm and 2 mm. The system was housed in a glass pressure-vessel rated to 5 bars, which was in turn placed in an oven which operated up to 300 degrees C. 
                                 <br></br>
                                 <br></br>
-                                To say this was a challenging measurement would be an understatement. Sulfuric acid is both fantastically corrosive and has a very low boiling point, 
-                                which meant that it was necessary to use highly corrosion-resistant materials and to achieve very consistent thermal conditions within the pressure vessel. 
+                                This measurement required high precision. Sulfuric acid is both fantastically corrosive and has a very low boiling point, 
+                                which meant that it was necessary to use highly corrosion-resistant materials and 
+                                to achieve very consistent thermal conditions within the pressure vessel to avoid condensation. 
                                 <br></br>
                                 <br></br>
                                 The results of these experiments were published in Icarus 
@@ -118,10 +97,11 @@ export default function RFEng() {
                             </div> 
                         </div>
 
-                        <div className='flex flex-col lg:flex-row bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-left lg:items-center mt-8'>
+                        <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl 
+                                        items-left lg:items-center mt-8 border-1'>
                             <div className='my-6'>
                                 <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Wideband Antenna Design</h1>
-                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> My group at JPL is interested in designing 
+                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 '> My group at JPL is interested in designing 
                                     next-generation microwave radiometer instruments with low size, weight, and power for future missions to the outer solar system. One focus in this effort has been the design of 
                                     wideband array antenna systems. 
                                     <br></br>
@@ -144,10 +124,10 @@ export default function RFEng() {
                             </div> 
                         </div>
                         
-                        <div className='flex flex-col lg:flex-row bg-linear-to-r from-gray-50 to-gray-300 rounded-xl max-w-7xl items-center mt-8'>
+                        <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl items-center mt-8 border-1'>
                             <div className='my-6'>
                                 <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Non-Destructive Material Analysis</h1>
-                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 text-black'> When designing instruments for space, it is necessary to 
+                                <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> When designing instruments for space, it is necessary to 
                                     satisfy mass and thermal requirements on external structures without severely impacting electromagnetic performance. 
                                     Towards this end, I conducted non-destructive material testing to verify the performance of the antenna reflector for the CRISTAL HRMR microwave radiometer. 
                                     Specifically, I ran experiments to determine that reflector conductivity was high enough to meet project 
