@@ -1,6 +1,8 @@
 import {useState} from 'react'; 
 import {useNavigate } from 'react-router-dom';
-import { FaArrowDown } from "react-icons/fa";
+
+import { FaArrowDown,FaGithub,FaInstagram,FaLinkedin  } from "react-icons/fa";
+
 import Silk from '../blocks/Backgrounds/Silk/Silk'
 import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
 import TextType from '../blocks/TextAnimations/TextType/TextType'
@@ -80,7 +82,6 @@ export default function Home() {
                               cursorBlinkDuration={0.5}
                               onSentenceComplete
                             />
-                            {/* Hi, I'm Alex Akins</h1> */}
                             </h1>
                         <p className="text-justify text-lg md:text-xl"> I'm a planetary scientist and engineer based in Atlanta, GA. 
                             I work as a researcher at the 
@@ -113,6 +114,12 @@ export default function Home() {
                             <p className='text-lg md:text-xl'>Download my CV 
                             </p>
                         </a>
+
+                        <div className='flex flex-row gap-8 mt-4 '>
+                        <a href="https://www.linkedin.com/in/alexbakins/"><FaLinkedin size={30} color="white"/></a>
+                        <a href="https://github.com/abakins/"><FaGithub size={30} color="white"/></a>
+                        <a href="https://www.instagram.com/assumingalex/"><FaInstagram size={30} color="white"/></a>
+                        </div>
                     </div>
                     
                 </div>
