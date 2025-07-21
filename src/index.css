@@ -98,13 +98,17 @@ download {
 select {
     border: 1px solid transparent;
     text-align-last:center;
-    
+    appearance: none;
 }
 
 select:focus, select:focus-visible {
   outline: none;
   border-color: none;
   box-shadow: none;
+}
+
+select:focus, select:active {
+  transition: none !important;
 }
 
 p {

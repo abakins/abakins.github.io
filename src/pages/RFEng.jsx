@@ -37,11 +37,17 @@ export default function RFEng() {
              </div>
 
             <div className="relative z-10 items-start justify-center h-full w-full">
+                <ClickSpark
+                sparkColor='#fff'
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}> {  
                 <div className="flex flex-col p-4 sm:p-6 lg:p-20 gap-8">
-                    <div>
-                        <h1 className="text-6xl mb-2 text-white text-center font-serif"> Microwave Engineering </h1>
-                        <div className="flex bg-none rounded-xl items-center justify-left max-w-7xl">
-                            <p className="rolltext text-xl lg:text-2xl text-white text-left sm:text-justify italic">  
+                    <div className='max-w-7xl'>
+                        <h1 className="text-6xl mb-2 text-white text-center"> Microwave Engineering </h1>
+                        <div className="flex bg-none rounded-xl items-center justify-left">
+                            <p className="rolltext text-xl lg:text-2xl text-white text-left sm:text-justify">  
                             My interest in microwave engineering started during my coursework and Ph.D. thesis research at Georgia Tech in the Electrical and Computer Engineering 
                             Department. From this background and my professional experience, I have a solid foundation in the fundamentals of microwave systems engineering.  
                             <br></br> 
@@ -57,7 +63,7 @@ export default function RFEng() {
                         <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl 
                                         items-left lg:items-center border-1'>
                             <div className='my-6'>
-                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 underline decoration-1 mx-6 my-2 text-left">
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left">
                                     Microwave Spectroscopy
                                 </h1>
                                 <h1 className="text-xl lg:text-2xl font-bold mb-2 text-left mx-6 my-2">
@@ -100,7 +106,7 @@ export default function RFEng() {
                         <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl 
                                         items-left lg:items-center mt-8 border-1'>
                             <div className='my-6'>
-                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Wideband Antenna Design</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black mx-6 my-2 text-left">Wideband Antenna Design</h1>
                                 <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2 '> My group at JPL is interested in designing 
                                     next-generation microwave radiometer instruments with low size, weight, and power for future missions to the outer solar system. One focus in this effort has been the design of 
                                     wideband array antenna systems. 
@@ -126,7 +132,7 @@ export default function RFEng() {
                         
                         <div className='flex flex-col lg:flex-row bg-black rounded-xl max-w-7xl items-center mt-8 border-1'>
                             <div className='my-6'>
-                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black underline decoration-1 mx-6 my-2 text-left">Non-Destructive Material Analysis</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold mb-2 text-black mx-6 my-2 text-left">Non-Destructive Material Analysis</h1>
                                 <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> When designing instruments for space, it is necessary to 
                                     satisfy mass and thermal requirements on external structures without severely impacting electromagnetic performance. 
                                     Towards this end, I conducted non-destructive material testing to verify the performance of the antenna reflector for the CRISTAL HRMR microwave radiometer. 
@@ -149,6 +155,8 @@ export default function RFEng() {
                         
                     </div>  
                 </div>
+            } </ClickSpark>
+
             </div>
 
         </div>

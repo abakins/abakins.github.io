@@ -1,9 +1,10 @@
 import {useNavigate} from 'react-router-dom';
+import Silk from '../blocks/Backgrounds/Silk/Silk'
 import { FaHome } from "react-icons/fa";
 import RollText from '../custom_blocks/SplitText/RollText';
 import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
 
-import Silk from '../blocks/Backgrounds/Silk/Silk'
+
 import ObsUrl from '../assets/obs_ims.webp'
 import UraVidUrl from '../assets/uravid.mp4'
 import VenusUrl from '../assets/venus_ims.webp'
@@ -12,7 +13,6 @@ import MoonsUrl from '../assets/moons.webp'
 export default function Astro() {
     
     RollText();
-
     const navigate=useNavigate() 
     const handleClick = () => {
         navigate('/');
@@ -42,7 +42,7 @@ export default function Astro() {
                 sparkRadius={15}
                 sparkCount={8}
                 duration={400}> {  
-                <div className="flex flex-col p-4 sm:p-10 lg:p-20 gap-8">
+                <div className="flex flex-col p-4 sm:p-6 lg:p-20 gap-8">
                     <div className='max-w-7xl'>
                         <h1 className="text-6xl mb-2 text-white text-center"> Astronomy </h1>
                         <div className="flex bg-none rounded-xl items-center justify-left">
@@ -57,12 +57,11 @@ export default function Astro() {
                     </div>
 
                     <div className='max-w-7xl'>
-                        <img className="object-scale-down rounded-2xl border-1 border-white" src={ObsUrl} alt="Global radio observatories"/>
+                        <img className="rounded-2xl border-1 border-white" src={ObsUrl} alt="Global radio observatories"/>
 
                     </div>
                     <div className='flex flex-col lg:flex-row border-1 bg-black
-                                    rounded-xl max-w-7xl items-left lg:items-center
-                                    '>
+                                    rounded-xl max-w-7xl items-left lg:items-center'>
                         <div>
                             <h1 className="text-2xl lg:text-4xl font-bold mb-2 mx-6 my-2 text-left">Uranus</h1>
                             <p className='rolltext text-lg lg:text-xl text-left sm:text-justify mx-6 my-2'> 
@@ -79,7 +78,7 @@ export default function Astro() {
                         </div>
 
                         <div className="flex flex-col my-2 mx-2 gap-4 items-center">
-                            <video className='w-auto max-w-sm min-w-2xs rounded-2xl' autoPlay muted playsInline loop >
+                            <video className=' rounded-2xl max-w-xs sm:max-w-sm' autoPlay muted playsInline loop >
                                 <source src={UraVidUrl} type="video/mp4" alt='Uranus observations'></source>
                             </video>
                             <p> Uranus, Very Large Array, 1981-2021 </p>

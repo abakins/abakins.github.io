@@ -1,5 +1,6 @@
 import {useState} from 'react'; 
 import {useNavigate } from 'react-router-dom';
+import { FaArrowDown } from "react-icons/fa";
 import Silk from '../blocks/Backgrounds/Silk/Silk'
 import ClickSpark from '../blocks/Animations/ClickSpark/ClickSpark'
 import TextType from '../blocks/TextAnimations/TextType/TextType'
@@ -88,15 +89,21 @@ export default function Home() {
                             <br></br>
                             You can click through the menu below to find out more about my work. 
                         </p>
-                        <h2 className="text-xl md:text-2xl border-b-1">
-                            <select
-                                value={dropVal}
-                                onChange={handleChange}>
-                            <option value="astro">Astronomy</option>
-                            <option value="microwave_eng">Microwave Engineering</option>
-                            <option value="space_ins">Spacecraft Instrument Science</option>
-                            </select>
-                        </h2>
+                        <div className='relative inline-block border-b-1'>
+                            <h2 className="text-xl md:text-2xl">
+                                <select
+                                    value={dropVal}
+                                    onChange={handleChange}
+                                >
+                                <option value="astro">Astronomy </option>
+                                <option value="microwave_eng">Microwave Engineering</option>
+                                <option value="space_ins">Spacecraft Instrument Science</option>
+                                </select>
+                            </h2>
+                            <div className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2">
+                                <FaArrowDown />
+                            </div>
+                        </div>
                         <button className="!bg-theme_blue w-auto max-w-lg mt-2" onClick={handleClick}>
                             <p>{buttonText}</p>
                         </button>   
